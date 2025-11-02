@@ -1,14 +1,12 @@
 import requests
 from datetime import datetime
 
-
 current_time = datetime.now()
 api_key = "9a311fd6832dca1fc646b098cb3bd10b"
 
 user_input = input("Enter City: ").capitalize()
 
 weather_call = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={user_input}&units=metric&APPID={api_key}")
-
 
 sky = weather_call.json()["weather"][0]["description"]
 temperature = weather_call.json()["main"]["temp"]
